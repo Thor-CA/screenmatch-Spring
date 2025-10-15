@@ -1,11 +1,16 @@
 package br.com.alura.screenmatch;
 
+import br.com.alura.screenmatch.Model.DadosEpisodio;
 import br.com.alura.screenmatch.Model.DadosSerie;
+import br.com.alura.screenmatch.Model.DadosTemporada;
+import br.com.alura.screenmatch.Principal.Principal;
 import br.com.alura.screenmatch.Service.ConsumoApi;
 import br.com.alura.screenmatch.Service.ConverterDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
 
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner {
@@ -16,12 +21,7 @@ public class ScreenmatchApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-      var consumoApi = new ConsumoApi();
-      var json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&apikey=cbf44c23");
-      System.out.println(json);
-      ConverterDados conversor = new ConverterDados();
-      DadosSerie dados  = conversor.obterDados(json, DadosSerie.class);
-      System.out.println(dados);
-
+    Principal pricipal = new Principal();
+    pricipal.exibeMenu();
     }
 }
